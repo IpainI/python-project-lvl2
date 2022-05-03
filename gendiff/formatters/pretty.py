@@ -1,7 +1,7 @@
-SPACES = '   '
+SPACES = '  '
 
 
-def generate_new_tree(tree, count=0):
+def render(tree, count=1):
     new_tree = []
     spaces = SPACES * count
     for key, value in tree.items():
@@ -10,15 +10,15 @@ def generate_new_tree(tree, count=0):
         if item_type == 'CHILD':
             new_tree.extend([
                 '{}  {}: {{'.format(spaces, key),
-                generate_new_tree(item_value, count + 2),
+                render(item_value, count + 2),
                 '{}}}'.format(spaces + SPACES)
             ])
         elif item_type == 'CHANGED':
             new_tree.extend([
                 '{}+ {}: {}'.format(spaces, key,
-                                    get_value(value.get('d1_value'))),
+                                    get_value(value.get('d2_value'))),
                 '{}- {}: {}'.format(spaces, key,
-                                    get_value(value.get('d2_value')))
+                                    get_value(value.get('d1_value')))
             ])
         if item_type == 'REMOVED':
             new_tree.append('{}- {}: {}'.format(spaces, key,
@@ -29,7 +29,7 @@ def generate_new_tree(tree, count=0):
         if item_type == 'UNCHANGED':
             new_tree.append('{}  {}: {}'.format(spaces, key,
                                                 get_value(item_value, count)))
-    if count == 0:
+    if count == 1:
         new_tree = ['{'] + new_tree + ['}']
     return '\n'.join(new_tree)
 

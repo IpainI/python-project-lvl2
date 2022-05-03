@@ -4,7 +4,7 @@ def check_value(value):
     return value
 
 
-def generate_plain(tree, nest=''):
+def render(tree, nest=''):
     if not isinstance(tree, dict):
         return str(tree)
 
@@ -20,7 +20,7 @@ def generate_plain(tree, nest=''):
         if item_type == 'REMOVED':
             message = "Property '{}' was removed".format(parents)
         if item_type == 'CHILD':
-            message = generate_plain(value.get('value'), parents)
+            message = render(value.get('value'), parents)
         if item_type == 'CHANGED':
             message = "Property '{}' was updated. From '{}' to '{}'".\
                 format(parents, check_value(value.get('d1_value')),

@@ -20,7 +20,7 @@ def pars_args():
     parser.add_argument('second_file', type=str,
                         help='This is the second file')
     parser.add_argument('-f', '--format', type=format,
-                        help='set format of output')
+                        help='set format of output', default='plain')
     args = parser.parse_args()
     formatter = args.format
     return text_format(args.first_file), text_format(args.second_file), formatter

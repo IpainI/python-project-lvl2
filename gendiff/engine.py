@@ -1,8 +1,18 @@
+from gendiff.formatters import format
+from gendiff.files import get_file_content
 
 
-def gen_diff(d1, d2):
-    keys = list(d1.keys() | d2.keys())
-    return {key: gen_tree(key, d1, d2) for key in sorted(keys)}
+def gen_files_diff(file1, file2, format_='plain'):
+    content1 = get_file_content(file1)
+    content2 = get_file_content(file2)
+    formatter = format.choose(format_)
+    diff = gen_diff(content1, content2)
+    return formatter.render(diff)
+
+
+def gen_diff(content1, content2):
+    keys = list(content1.keys() | content2.keys())
+    return {key: gen_tree(key, content1, content2) for key in sorted(keys)}
 
 
 def convert_value(elem_value):
