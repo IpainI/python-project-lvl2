@@ -40,22 +40,6 @@ def generate_pretty(tree, count=1):
         new_tree = ['{'] + new_tree + ['}']
     return '\n'.join(new_tree)
 
-#
-# def gen_sub_tree(tree, count):
-#     res = list()
-#     res.append('|')
-#     for key, value in tree.items():
-#         indent = SPACES * (count + 3)
-#         formatted_value = get_value(value, count + 1)
-#         res.append('{}{}| {}'.format(indent, key, formatted_value))
-#     return '\n'.join(res)
-
-
-# def check_simple(value, count):
-#     if isinstance(value, dict):
-#         return gen_sub_tree(value, count+1)
-#     return value
-
 
 def get_value(value, count):
     if value is True:
