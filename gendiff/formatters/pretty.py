@@ -22,10 +22,10 @@ def generate_pretty(tree, count=1):
             ])
         elif item_type == 'CHANGED':
             new_tree.extend([
-                '{}+ {}: {}'.format(spaces, key,
-                                    get_value(value.get('d2_value'), count)),
                 '{}- {}: {}'.format(spaces, key,
-                                    get_value(value.get('d1_value'), count))
+                                    get_value(value.get('d1_value'), count)),
+                '{}+ {}: {}'.format(spaces, key,
+                                    get_value(value.get('d2_value'), count))
             ])
         if item_type == 'REMOVED':
             new_tree.append('{}- {}: {}'.format(spaces, key,
