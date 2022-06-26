@@ -7,7 +7,6 @@ def choose(out_format):
         'pretty': pretty,
         'json': json,
     }
-    try:
     if not out_format:
         return pretty
     return formatters[out_format]
