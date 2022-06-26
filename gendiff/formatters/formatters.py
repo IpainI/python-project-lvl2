@@ -1,15 +1,14 @@
 from gendiff.formatters import plain, pretty, json
 
 
-def choose(stylish):
+def choose(out_format):
     formatters = {
         'plain': plain,
         'pretty': pretty,
         'json': json,
     }
     try:
-        if not stylish:
-            return pretty
-        return formatters[stylish]
-    except KeyError:
-        raise ValueError(f'Format {stylish} does not exist')
+    if not out_format:
+        return pretty
+    return formatters[out_format]
+    
