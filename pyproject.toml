@@ -1,5 +1,5 @@
 [tool.poetry.scripts]
-gendiff = "gendiff.cli:gendiff"
+gendiff = "gendiff.cli:main"
 proba = "gendiff.scripts.parsing:main"
 
 
