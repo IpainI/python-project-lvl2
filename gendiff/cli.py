@@ -25,7 +25,7 @@ def pars_args():
     return args.first_file, args.second_file, args.format
   
 
-def gendiff(file_path_1, file_path_2, out_format='pretty')
+def gendiff(file_path_1, file_path_2, out_format='pretty'):
     formatter = formatters.choose(output_format)
     return formatter.render(parese(file_path_1), parese(file_path_2))
   
