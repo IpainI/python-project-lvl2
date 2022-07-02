@@ -5,12 +5,13 @@ import json
 import yaml
 
 
-def parse(content):
+def pars(content):
     extension = content.split('.')[-1]
-    if extension == 'json':
-        return json.loads(content)
-    elif extension == 'yml':
-        return yaml.safe_load(content)
+    with open(content, 'r') as path:
+        if extension == 'json':
+            return json.loads(path)
+        elif extension == 'yml':
+            return yaml.safe_load(path)
 
 
 def pars_args():
@@ -30,6 +31,6 @@ def main():
     if not out_format:
         out_format = 'pretty'
     formatter = formatters.choose(out_format)
-    return formatter.render(parse(file1), parse(file2))
+    return formatter.render(pars(file1), pars(file2))
   
   
