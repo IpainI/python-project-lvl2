@@ -9,7 +9,7 @@ def pars(content):
     extension = content.split('.')[-1]
     with open(content, 'r') as path:
         if extension == 'json':
-            return json.loads(path)
+            return json.loads(content)
         elif extension == 'yml':
             return yaml.safe_load(path)
 
