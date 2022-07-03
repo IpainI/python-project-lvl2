@@ -24,12 +24,11 @@ def pars_args():
                         help='set format of output')
     args = parser.parse_args()
     return args.first_file, args.second_file, args.format
-  
+
 
 def main():
     file1, file2, out_format = pars_args()
     formatter = formatters.choose(out_format)
     result = formatter.render(pars(file1), pars(file2))
     print(result)
-  
   
