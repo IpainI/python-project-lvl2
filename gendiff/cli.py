@@ -5,13 +5,13 @@ import json
 import yaml
 
 
-def pars(content):
+def pars(path):
     extension = content.split('.')[-1]
-    with open(content, 'r') as path:
+    with open(file_path, mode='r', encoding='utf8') as content:
         if extension == 'json':
-            return json.loads(content)
+            return json.loads(content.read())
         elif extension == 'yml':
-            return yaml.safe_load(path)
+            return yaml.safe_load(content)
 
 
 def pars_args():
