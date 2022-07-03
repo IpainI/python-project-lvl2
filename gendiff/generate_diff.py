@@ -7,4 +7,3 @@ def generate_diff(file1, file2, stylish='pretty'):
     content2 = get_file_content(file2)
     formatter = formatters.choose(stylish)
     return formatter.render(content1, content2)
-
