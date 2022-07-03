@@ -31,4 +31,3 @@ def main():
     formatter = formatters.choose(out_format)
     result = formatter.render(pars(file1), pars(file2))
     print(result)
-  
