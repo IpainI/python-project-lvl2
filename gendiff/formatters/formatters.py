@@ -9,6 +9,6 @@ def choose(out_format):
         'stylish' : pretty,
     }
     if not out_format:
-        return prerty
+        return pretty
     return formatters[out_format]
     
