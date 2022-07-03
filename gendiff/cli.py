@@ -6,7 +6,7 @@ import yaml
 
 
 def pars(path):
-    extension = content.split('.')[-1]
+    extension = path.split('.')[-1]
     with open(file_path, mode='r', encoding='utf8') as content:
         if extension == 'json':
             return json.loads(content.read())
