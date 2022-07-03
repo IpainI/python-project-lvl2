@@ -41,6 +41,3 @@ def test_plain_complex():
     with open('./tests/fixtures/result3.txt', 'w') as a:
         a.write(result)
     assert expected == result
-
-
-
