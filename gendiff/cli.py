@@ -28,9 +28,8 @@ def pars_args():
 
 def main():
     file1, file2, out_format = pars_args()
-    if not out_format:
-        out_format = 'pretty'
     formatter = formatters.choose(out_format)
-    return formatter.render(pars(file1), pars(file2))
+    result = formatter.render(pars(file1), pars(file2))
+    print(result)
   
   
