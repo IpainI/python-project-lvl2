@@ -1,6 +1,3 @@
-from gendiff import generate_diff
-
-
 def gen_diff(d1, d2):
     keys = list(d1.keys() | d2.keys())
     return {key: gen_tree(key, d1, d2) for key in sorted(keys)}
