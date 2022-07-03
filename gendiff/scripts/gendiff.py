@@ -36,11 +36,3 @@ def gen_tree(key, d1, d2):
             'd2_value': value2,
         }
     return tree
-
-
-def main():
-    generate_diff(file1, file2, out_format)
-
-
-if __name__ == '__main__':
-    main()
